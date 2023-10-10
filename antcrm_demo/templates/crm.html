@@ -34,7 +34,7 @@
 
 <!-- Fixed Top Navbar -->
 <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
-  <a class="navbar-brand" href="{% url 'welcome' %}"><img src="{% static 'images/logo.png' %}"  alt="Ant Solutions Logo"></a>
+  <a class="navbar-brand"><img src="{% static 'images/logo.png' %}"  alt="Ant Solutions Logo"></a>
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
     </button>
@@ -46,8 +46,33 @@
         <li class="nav-item">
           <a class="nav-link" href="#">Leads</a>
         </li>
-        <li class="nav-item">
-          <a class="nav-link" href="#">Contacts</a>
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" href="#" id="inventorydropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Inventory</a>
+          <div class="dropdown-menu dropdown-menu-right" aria-labelledby="inventorydropdown">
+            <a class="dropdown-item" href=>Product Catalog</a>
+            <div class="dropdown-divider"></div>
+            <a class="dropdown-item" href=>Inventory Management</a>
+        </li>
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" href="#" id="customersdropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Customers</a>
+          <div class="dropdown-menu dropdown-menu-right" aria-labelledby="customersdropdown">
+            <a class="dropdown-item" href=>Contacts</a>
+            <div class="dropdown-divider"></div>
+            <a class="dropdown-item" href=>Companies</a>
+        </li>
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" href="#" id="salesdropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Sales</a>
+          <div class="dropdown-menu dropdown-menu-right" aria-labelledby="salesdropdown">
+            <a class="dropdown-item" href=>Invoices</a>
+            <div class="dropdown-divider"></div>
+            <a class="dropdown-item" href=>Estimates</a>
+        </li>
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" href="#" id="analyticsdropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Analytics</a>
+          <div class="dropdown-menu dropdown-menu-right" aria-labelledby="analyticsdropdown">
+            <a class="dropdown-item" href={% url 'leads_dashboard'%}>Leads Dashboard</a>
+            <div class="dropdown-divider"></div>
+            <a class="dropdown-item" href={% url 'deals_dashboard'%}>Deals Dashboard</a>
         </li>
       </ul>
     </div>

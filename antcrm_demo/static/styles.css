@@ -132,5 +132,13 @@ footer p {
 }
 
 
+/* Custom CSS for avatar size */
+.user-avatar {
+    width: 40px; /* Adjust the avatar width as needed */
+    height: 40px; /* Adjust the avatar height as needed */
+    border-radius: 50%;
+}
+
+
 
 

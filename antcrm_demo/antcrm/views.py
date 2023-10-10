@@ -52,3 +52,9 @@ def signup(request):
 @login_required
 def crm(request):
     return render(request, 'crm.html')
+
+def deals_dashboard(request):
+    return render(request, 'deals_dashboard.html')
+
+def leads_dashboard(request):
+    return render(request, 'leads_dashboard.html')
