@@ -1,0 +1,65 @@
+{% load static %}
+{% load crispy_forms_tags %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sign Up - Ant Solutions CRM</title>
+
+    <!-- Link to Bootstrap CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    
+    <!-- Link to your custom CSS (create this file) -->
+    <link rel="stylesheet" href="{% static 'styles.css' %}">
+</head>
+<body>
+
+<!-- Navbar with dark background (you can keep this consistent) -->
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+  <a class="navbar-brand" href="{% url 'welcome' %}"><img src="{% static 'images/logo.png' %}"  alt="Ant Solutions Logo"></a>
+  <!-- You can add navigation links here if needed -->
+</nav>
+
+<!-- Sign-Up Form -->
+<div class="container mt-5">
+  <div class="row justify-content-center">
+    <div class="col-md-6">
+      <h2>Create an Account</h2>
+      <form method="post" action="{% url 'signup' %}">
+        {% csrf_token %}
+        {{ form|crispy }}
+        <button type="submit" class="btn btn-primary">Sign Up</button>
+    </form>
+      <p class="mt-3">Already have an account? <a href="{% url 'login' %}">Login</a></p>
+    </div>
+  </div>
+</div>
+
+<!-- Link to Bootstrap JS (optional) -->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+
+</body>
+</html>
+
+
+
+<script>
+    document.addEventListener("DOMContentLoaded", function () {
+        // Get a reference to the logo link
+        const logoLink = document.getElementById("logo-link");
+    
+        // Add an event listener to the logo link
+        logoLink.addEventListener("click", function (event) {
+            // Prevent the default behavior of the link (prevents it from navigating)
+            event.preventDefault();
+    
+            // Redirect to the welcome page
+            window.location.href = "welcome.html";
+        });
+    });
+    </script>
+    

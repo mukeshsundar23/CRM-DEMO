@@ -1,0 +1,71 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ant Solutions CRM</title>
+
+    <!-- Link to Bootstrap CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    
+    <!-- Link to your custom CSS (create this file) -->
+    <link rel="stylesheet" href="{% static 'styles.css' %}">
+    
+    <style>
+        /* Custom CSS for navbar and avatar size */
+        .navbar {
+            min-height: 60px; /* Adjust the height as needed */
+        }
+
+        .user-avatar {
+            width: 40px; /* Adjust the avatar width as needed */
+            height: 40px; /* Adjust the avatar height as needed */
+            border-radius: 50%;
+        }
+
+        /* Custom CSS to align the dropdown icon with the logo */
+        .navbar-toggler-icon {
+            line-height: 40px; /* Adjust the line-height to vertically center the icon */
+        }
+    </style>
+</head>
+<body>
+
+<!-- Fixed Top Navbar -->
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
+  <a class="navbar-brand" href="{% url 'welcome' %}"><img src="{% static 'images/logo.png' %}"  alt="Ant Solutions Logo"></a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarNav">
+      <ul class="navbar-nav mx-auto">
+        <li class="nav-item">
+          <a class="nav-link" href="#">Deals</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="#">Leads</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="#">Contacts</a>
+        </li>
+      </ul>
+    </div>
+    <div class="nav-item dropdown">
+        <a class="nav-link dropdown-toggle" href="#" id="userDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            <img src="{% static 'images/user-avatar.png'%}" alt="User Avatar" class="user-avatar">
+        </a>
+        <div class="dropdown-menu dropdown-menu-right" aria-labelledby="userDropdown">
+            <a class="dropdown-item" href="#">Edit Profile</a>
+            <div class="dropdown-divider"></div>
+            <a class="dropdown-item" href={% url 'logout' %}>Log Out</a>
+        </div>
+    </div>
+</nav>
+  
+<!-- Link to Bootstrap JS (optional) -->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+
+</body>
+</html>
