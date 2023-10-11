@@ -15,6 +15,7 @@ urlpatterns = [
     path('analytics', views.analytics, name='analytics'),
     path('deals_list', views.deals_list, name='deals_list'),
     path('deals_form', views.deals_form, name='deals_form'),
-    path('leads', views.leads, name='leads'),
+    path('leads_list', views.leads_list, name='leads_list'),
+    path('leads_form', views.leads_form, name='leads_form'),
 ]
 

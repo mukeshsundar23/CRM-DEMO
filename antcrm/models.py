@@ -1,44 +1,41 @@
 from django.db import models
 
 class Deals(models.Model):
-    first_name = models.CharField(max_length=100)
-    last_name = models.CharField(max_length=100)
-    company_name = models.CharField(max_length=100, blank=True, null=True)
-    email = models.EmailField()
-    phone_number = models.CharField(max_length=20, blank=True, null=True)
-    address = models.TextField(blank=True, null=True)
-    city = models.CharField(max_length=50, blank=True, null=True)
-    state = models.CharField(max_length=50, blank=True, null=True)
-    postal_code = models.CharField(max_length=10, blank=True, null=True)
-    country = models.CharField(max_length=50, blank=True, null=True)
-    notes = models.TextField(blank=True, null=True)
+    deal_id = models.AutoField(primary_key=True)
+    deal_name = models.CharField(max_length=255, default='Default Name')
+    stage = models.CharField(max_length=255, default='Default Stage')
+    activity = models.CharField(max_length=255, default='Default Activity')
+    client = models.CharField(max_length=255, default='Default Client')
+    amount = models.DecimalField(max_digits=10, decimal_places=2, default=0.0)
+    responsible = models.CharField(max_length=255, default='Default Responsible')
+    created = models.DateTimeField(auto_now_add=True)
+    customer_journey = models.CharField(max_length=255, default='Default Journey')
+
     class Meta:
         app_label = 'antcrm'
+
 
 class Leads(models.Model):
-    first_name = models.CharField(max_length=255)
-    last_name = models.CharField(max_length=255)
-    company_name = models.CharField(max_length=255, blank=True, null=True)
-    title = models.CharField(max_length=255, blank=True, null=True)
-    phone_number = models.CharField(max_length=20, blank=True, null=True)
-    email_address = models.EmailField()
-    address = models.TextField(blank=True, null=True)
-    source = models.CharField(max_length=255, blank=True, null=True)
-    status = models.CharField(max_length=255, blank=True, null=True)
-    lead_score = models.IntegerField(blank=True, null=True)
-    lead_owner = models.CharField(max_length=255, blank=True, null=True)
-    created_date = models.DateTimeField(auto_now_add=True)
-    last_updated_date = models.DateTimeField(auto_now=True)
-    notes = models.TextField(blank=True, null=True)
-    next_follow_up_date = models.DateField(blank=True, null=True)
-    lead_source = models.CharField(max_length=255, blank=True, null=True)
-    lead_type = models.CharField(max_length=255, blank=True, null=True)
-    campaign = models.CharField(max_length=255, blank=True, null=True)
-    authority = models.CharField(max_length=255, blank=True, null=True)
-    need = models.TextField(blank=True, null=True)
-    timeline = models.TextField(blank=True, null=True)
+    # Lead ID will be automatically created as a primary key
 
-    class Meta:
-        app_label = 'antcrm'
+    first_name = models.CharField(max_length=50)
+    last_name = models.CharField(max_length=50)
+    company = models.CharField(max_length=100)
+    email = models.EmailField()
+    phone = models.CharField(max_length=20)
+    address = models.TextField()
+    status = models.CharField(max_length=20)
+    source = models.CharField(max_length=50)
+    assigned_to = models.CharField(max_length=50)
+    lead_quality = models.CharField(max_length=10)
+    lead_score = models.IntegerField()
+    notes = models.TextField()
+    created_date = models.DateField()
+    last_contacted = models.DateField()
+    next_followup_date = models.DateField()
+
+    def __str__(self):
+        return f"{self.first_name} {self.last_name}"
+
 
 

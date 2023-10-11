@@ -1,6 +1,6 @@
 from django import forms
 from .models import Deals
-from .models import  Leads
+from .models import Leads
 
 class DealForm(forms.ModelForm):
     class Meta:

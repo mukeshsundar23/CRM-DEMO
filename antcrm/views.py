@@ -5,6 +5,8 @@ from django.contrib.auth import logout as auth_logout
 from django.shortcuts import render, redirect
 from django.contrib.auth.decorators import login_required
 from django.contrib.auth.forms import UserCreationForm
+from .forms import LeadForm, DealForm
+from .models import Deals, Leads
 
 
 def welcome(request):
@@ -52,12 +54,36 @@ def analytics(request):
     return render(request, 'analytics.html')
 
 def deals_list(request):
-    return render(request, 'deals_list.html')
+    deals = Deals.objects.all()  # Fetch all deals from the database
+    return render(request, 'deals_list.html', {'deals': deals})
 
 def deals_form(request):
-    return render(request, 'create_deals.html')
+    if request.method == 'POST':
+        form = DealForm(request.POST)
+        if form.is_valid():
+            form.save()
+            return redirect('deals_list')  # Redirect to the deals list view
+    else:
+        form = DealForm()
 
-def leads(request):
-    return render(request, 'leads.html')
+    return render(request, 'deals_form.html', {'form': form})
+
+def leads_list(request):
+    leads = Leads.objects.all()  # Fetch all deals from the database
+    return render(request, 'leads_list.html', {'leads': leads})
+
+
+def leads_form(request):
+    if request.method == 'POST':
+        form = LeadForm(request.POST)
+        if form.is_valid():
+            form.save()
+            return redirect('leads_list')  # Redirect to the leads list view
+    else:
+        form = LeadForm()
+
+    return render(request, 'leads_form.html', {'form': form})
+
+
 
 
