@@ -106,3 +106,61 @@ footer p {
   padding: 10px 0; /* Footer padding */
 }
 
+/* Custom CSS for navbar and avatar size */
+body {
+  overflow-x: hidden;
+  overflow-y: auto;
+}
+
+.navbar {
+  min-height: 60px;
+}
+
+.user-avatar {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+}
+
+.navbar-toggler-icon {
+  line-height: 40px;
+}
+
+.header {
+  margin-top: 150px;
+}
+
+.card-row {
+  justify-content: center;
+}
+
+.card {
+  margin: 20px;
+  background-color: #343a40; /* Set the same color as the navbar */
+  border: none; /* Remove card borders */
+  color: #fff; /* Text color for the cards */
+}
+
+.card-link {
+  color: #fff; /* Text color for the card links */
+  text-decoration: none;
+}
+
+.navbar .dropdown-menu {
+  right: 0;
+  left: auto;
+}
+
+/* Style for the footer */
+.footer {
+  background-color: #343a40;
+  color: #fff;
+  text-align: center;
+  padding: 10px 0;
+  position: absolute;
+  bottom: 0;
+  height: 25%;
+  width: 100%;
+  overflow-x: auto;
+  overflow-y: auto;
+}

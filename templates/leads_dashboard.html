@@ -5,42 +5,11 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Leads Dashboard</title>
-    <!-- Link to Bootstrap CSS -->
+
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
-    <!-- Add your custom CSS if needed -->
     <link rel="stylesheet" href="{% static 'styles.css' %}">
 </head>
 
-<style>
-    body {
-        overflow-x: hidden;
-        overflow-y: auto;
-    }
-
-    .navbar {
-        min-height: 60px;
-    }
-
-    .user-avatar {
-        width: 40px;
-        height: 40px;
-        border-radius: 50%;
-    }
-
-    .navbar-toggler-icon {
-        line-height: 40px;
-    }
-
-    .header {
-        margin-top: 150px;
-    }
-
-    .navbar .dropdown-menu {
-        right: 0;
-        left: auto;
-    }
-</style>
-</head>
 <body>
 <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
 <a class="navbar-brand" href="{% url 'crm' %}">
@@ -64,12 +33,9 @@
 <body>
     <div class="container mt-5">
         <div class="embed-responsive embed-responsive-16by9">
-            <!-- Paste your Deals dashboard embed code here -->
-            <!-- For example, if your code looks like this -->
             <iframe class="embed-responsive-item" src="https://app.powerbi.com/view?r=eyJrIjoiMDljYjdiMDEtOWY4My00ZTczLTg1ODItZjBjMTgwMGMzZTQ4IiwidCI6IjdhYjQ5OGNmLTFiYzQtNGI5ZS1hZGE3LTAxZjFmYWJlZDZlYiJ9" frameborder="0" allowFullScreen="true"></iframe>
         </div>
     </div>
-    <!-- Link to Bootstrap JS and jQuery (optional) -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
 </body>

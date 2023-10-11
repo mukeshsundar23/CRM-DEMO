@@ -39,7 +39,7 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'crispy_bootstrap4',
-    'crispy_forms'
+    'crispy_forms',
 ]
 
 MIDDLEWARE = [
@@ -76,12 +76,18 @@ WSGI_APPLICATION = 'antcrm_demo.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/4.2/ref/settings/#databases
 
+# settings.py
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR / 'db.sqlite3',
+        'ENGINE': 'django.db.backends.mysql',
+        'NAME': 'ant-crm',
+        'USER': 'root',
+        'PASSWORD': '',
+        'HOST': 'localhost',  # or your MySQL server host
+        'PORT': '3306',  # or your MySQL server port
     }
 }
+
 
 
 # Password validation
