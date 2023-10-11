@@ -1,71 +1,54 @@
 /* Global Styles */
-
 body {
-    font-family: Arial, sans-serif;
-    background-color: #f8f9fa; /* Background color for the entire page */
-  }
-  
-  .container {
-    margin-top: 20px;
-  }
-  
-  /* Navbar Styles */
-  
-  .navbar {
-    border-radius: 0;
-  }
-  
-  .navbar-brand img {
-    max-height: 40px; /* Adjust the logo's max height as needed */
-  }
-  
-  /* Welcome Page Styles */
-  
-  .welcome-container {
-    text-align: center;
-    padding: 40px;
-    background-color: #ffffff;
-    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
-    border-radius: 5px;
-  }
-  
-  /* Login and Sign-Up Page Styles */
-  
-  .card {
-    border: none;
-  }
-  
-  .card-body {
-    padding: 20px;
-  }
-  
-  .form-group {
-    margin-bottom: 20px;
-  }
-  
-  .btn-primary {
-    background-color: #007bff;
-    border: none;
-  }
-  
-  .btn-primary:hover {
-    background-color: #0056b3;
-  }
-  
-  /* Add any additional styling you need here */
-  
-  /* Example: Styling for links */
-  a {
-    color: #007bff;
-    text-decoration: none;
-  }
-  
-  a:hover {
-    text-decoration: underline;
-  }
-  
-/* CSS for Footer */
+  font-family: Arial, sans-serif;
+  background-color: #f8f9fa; /* Background color for the entire page */
+}
 
+.container {
+  margin-top: 20px;
+}
+
+/* Navbar Styles */
+.navbar {
+  border-radius: 0;
+}
+
+.navbar-brand img {
+  max-height: 40px; /* Adjust the logo's max height as needed */
+}
+
+/* Welcome Page Styles */
+.welcome-container {
+  text-align: center;
+  padding: 40px;
+  background-color: #ffffff;
+  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+  border-radius: 5px;
+}
+
+/* Login and Sign-Up Page Styles */
+.card {
+  border: none;
+}
+
+.card-body {
+  padding: 20px;
+}
+
+.form-group {
+  margin-bottom: 20px;
+}
+
+.btn-primary {
+  background-color: #007bff;
+  border: none;
+}
+
+.btn-primary:hover {
+  background-color: #0056b3;
+}
+
+/* Footer Styles */
 footer {
   position: absolute;
   bottom: 0;
@@ -81,7 +64,6 @@ footer {
 footer p {
   margin: 5px 0;
 }
-
 
 /* Apply styles to elements within the CRM page */
 .crm-page {
@@ -123,22 +105,4 @@ footer p {
   text-align: center;
   padding: 10px 0; /* Footer padding */
 }
-
-
-/* Main Content Styles for CRM Page */
-.crm-page h1 {
-  font-size: 24px;
-  /* Your main content styles here */
-}
-
-
-/* Custom CSS for avatar size */
-.user-avatar {
-    width: 40px; /* Adjust the avatar width as needed */
-    height: 40px; /* Adjust the avatar height as needed */
-    border-radius: 50%;
-}
-
-
-
 

@@ -4,12 +4,63 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Deals Dashboard</title>
+    <title>Leads Dashboard</title>
     <!-- Link to Bootstrap CSS -->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
     <!-- Add your custom CSS if needed -->
     <link rel="stylesheet" href="{% static 'styles.css' %}">
 </head>
+
+<style>
+    body {
+        overflow-x: hidden;
+        overflow-y: auto;
+    }
+
+    .navbar {
+        min-height: 60px;
+    }
+
+    .user-avatar {
+        width: 40px;
+        height: 40px;
+        border-radius: 50%;
+    }
+
+    .navbar-toggler-icon {
+        line-height: 40px;
+    }
+
+    .header {
+        margin-top: 150px;
+    }
+
+    .navbar .dropdown-menu {
+        right: 0;
+        left: auto;
+    }
+</style>
+</head>
+<body>
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
+<a class="navbar-brand" href="{% url 'crm' %}">
+    <img src="{% static 'images/logo.png' %}" alt="Ant Solutions Logo">
+</a>
+<div class="ml-auto">
+    <div class="nav-item dropdown">
+        <a class="nav-link dropdown-toggle" href="#" id="userDropdown" role= "button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            <img src="{% static 'images/user-avatar.png'%}" alt="User Avatar" class="user-avatar">
+        </a>
+        <div class="dropdown-menu dropdown-menu-dark dropdown-menu-right" aria-labelledby="userDropdown">
+            <a class="dropdown-item" href="#">Edit Profile</a>
+            <div class="dropdown-divider"></div>
+            <a class="dropdown-item" href={% url 'logout' %}>Log Out</a>
+        </div>
+    </div>
+</div>
+</nav>
+
+
 <body>
     <div class="container mt-5">
         <div class="embed-responsive embed-responsive-16by9">

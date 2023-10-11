@@ -58,3 +58,6 @@ def deals_dashboard(request):
 
 def leads_dashboard(request):
     return render(request, 'leads_dashboard.html')
+
+def analytics(request):
+    return render(request, 'analytics.html')
