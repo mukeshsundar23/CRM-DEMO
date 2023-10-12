@@ -45,19 +45,24 @@ def logout(request):
 def crm(request):
     return render(request, 'crm.html')
 
+@login_required
 def deals_dashboard(request):
     return render(request, 'deals_dashboard.html')
 
+@login_required
 def leads_dashboard(request):
     return render(request, 'leads_dashboard.html')
 
+@login_required
 def analytics(request):
     return render(request, 'analytics.html')
 
+@login_required
 def deals_list(request):
     deals = Deals.objects.all()  # Fetch all deals from the database
     return render(request, 'deals_list.html', {'deals': deals})
 
+@login_required
 def deals_form(request):
     if request.method == 'POST':
         form = DealForm(request.POST)
@@ -68,6 +73,7 @@ def deals_form(request):
         form = DealForm()
     return render(request, 'deals_form.html', {'form': form})
 
+@login_required
 def deals_update(request, deal_id):
     deal = get_object_or_404(Deals, deal_id=deal_id)
 
@@ -81,6 +87,7 @@ def deals_update(request, deal_id):
 
     return render(request, 'deals_update.html', {'form': form, 'deal': deal})
 
+@login_required
 def deals_delete(request, deal_id):
     deal = get_object_or_404(Deals, deal_id=deal_id)
     if request.method == 'POST':
@@ -88,11 +95,12 @@ def deals_delete(request, deal_id):
         return redirect('deals_list')
     return render(request, 'deals_delete.html', {'deal': deal})
 
+@login_required
 def leads_list(request):
     leads = Leads.objects.all()  # Fetch all deals from the database
     return render(request, 'leads_list.html', {'leads': leads})
 
-
+@login_required
 def leads_form(request):
     if request.method == 'POST':
         form = LeadForm(request.POST)
@@ -104,6 +112,7 @@ def leads_form(request):
 
     return render(request, 'leads_form.html', {'form': form})
 
+@login_required
 def leads_update(request, lead_id):
     lead = get_object_or_404(Leads, pk=lead_id)  # Use 'pk' instead of 'lead_id'
 
@@ -117,6 +126,7 @@ def leads_update(request, lead_id):
 
     return render(request, 'leads_update.html', {'form': form, 'lead': lead})
 
+@login_required
 def leads_delete(request, lead_id):
     lead = get_object_or_404(Leads, pk=lead_id)  # Use 'pk' instead of 'lead_id
     if request.method == 'POST':

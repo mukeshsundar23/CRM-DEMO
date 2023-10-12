@@ -14,16 +14,17 @@
             margin: 0 auto;
             padding: 20px;
             background-color: #333;
-            border: 1px solid #555;
+            border: 1px solid #fff;
             border-radius: 10px;
             box-shadow: 0 0 10px rgba(255, 255, 255, 0.1);
         }
 
         .card-title {
+            font-weight: bold;
             text-align: center;
-            margin-bottom: 20px;
+            margin-bottom: 10px;
             font-size: 24px;
-            color: #fff;
+            color: #000000;
             position: relative;
             z-index: 1;
         }
@@ -34,18 +35,18 @@
 
         label {
             font-weight: bold;
-            color: #fff;
+            color: #000000;
         }
 
         input[type="text"],
         select {
             width: 100%;
             padding: 8px;
-            border: 1px solid #555;
+            border: 1px solid #fff;
             border-radius: 5px;
             font-size: 16px;
-            background-color: #444;
-            color: #fff;
+            background-color: #fff;
+            color: #000000;
         }
         
         #id_lead_score,
@@ -55,11 +56,11 @@
         #id_email {
             width: 100%;
             padding: 8px;
-            border: 1px solid #555;
+            border: 1px solid #fff;
             border-radius: 5px;
             font-size: 16px;
-            background-color: #444;
-            color: #fff;
+            background-color: #fff;
+            color: #000000;
         }
 
         .btn-primary {
@@ -86,7 +87,7 @@
     </nav>
     <div class="container mt-5">
         <div class="d-flex justify-content-center">
-            <div class="lead-update-form-body">
+            <div class="lead-update-form-body" style="background-color:#D3D3D3;">
                 <h5 class="card-title text-center">Update Deal</h5>
                 <form method="post" id="update-deal-form">
                     {% csrf_token %}
