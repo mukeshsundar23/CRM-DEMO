@@ -1,4 +1,4 @@
-from django.shortcuts import render
+from django.shortcuts import render, get_object_or_404, redirect
 from django.contrib.auth import login as auth_login
 from django.contrib.auth import authenticate
 from django.contrib.auth import logout as auth_logout
@@ -7,6 +7,7 @@ from django.contrib.auth.decorators import login_required
 from django.contrib.auth.forms import UserCreationForm
 from .forms import LeadForm, DealForm
 from .models import Deals, Leads
+
 
 
 def welcome(request):
@@ -65,8 +66,27 @@ def deals_form(request):
             return redirect('deals_list')  # Redirect to the deals list view
     else:
         form = DealForm()
-
     return render(request, 'deals_form.html', {'form': form})
+
+def deals_update(request, deal_id):
+    deal = get_object_or_404(Deals, deal_id=deal_id)
+
+    if request.method == 'POST':
+        form = DealForm(request.POST, instance=deal)
+        if form.is_valid():
+            form.save()
+            return redirect('deals_list')
+    else:
+        form = DealForm(instance=deal)
+
+    return render(request, 'deals_update.html', {'form': form, 'deal': deal})
+
+def deals_delete(request, deal_id):
+    deal = get_object_or_404(Deals, deal_id=deal_id)
+    if request.method == 'POST':
+        deal.delete()
+        return redirect('deals_list')
+    return render(request, 'deals_delete.html', {'deal': deal})
 
 def leads_list(request):
     leads = Leads.objects.all()  # Fetch all deals from the database
@@ -83,6 +103,27 @@ def leads_form(request):
         form = LeadForm()
 
     return render(request, 'leads_form.html', {'form': form})
+
+def leads_update(request, lead_id):
+    lead = get_object_or_404(Leads, pk=lead_id)  # Use 'pk' instead of 'lead_id'
+
+    if request.method == 'POST':
+        form = LeadForm(request.POST, instance=lead)
+        if form.is_valid():
+            form.save()
+            return redirect('leads_list')
+    else:
+        form = LeadForm(instance=lead)
+
+    return render(request, 'leads_update.html', {'form': form, 'lead': lead})
+
+def leads_delete(request, lead_id):
+    lead = get_object_or_404(Leads, pk=lead_id)  # Use 'pk' instead of 'lead_id
+    if request.method == 'POST':
+        lead.delete()
+        return redirect('leads_list')
+    return render(request, 'leads_delete.html', {'lead': lead})
+
 
 
 
