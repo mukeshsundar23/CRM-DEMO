@@ -134,7 +134,7 @@ body {
 
 .card {
   margin: 20px;
-  background-color: #e56b6f; /* Set the same color as the navbar */
+  background-color: #005073; /* Set the same color as the navbar */
   border: none; /* Remove card borders */
   color: #fff; /* Text color for the cards */
 }
@@ -170,7 +170,7 @@ body {
 }
 
 .thead{
-  background-color: #e56b6f;
+  background-color: #005073;
   color:#fff;
 }
 
@@ -211,7 +211,7 @@ body {
 
 .card-logout {
   margin: 100px;
-  background-color: #e56b6f; /* Set the same color as the navbar */
+  background-color: #005073; /* Set the same color as the navbar */
   border: none; /* Remove card borders */
   color: #fff; /* Text color for the cards */
   padding-top: 10px;
@@ -220,7 +220,7 @@ body {
 
 .card-login{
   margin: 100px;
-  background-color: #e56b6f; /* Set the same color as the navbar */
+  background-color: #005073; /* Set the same color as the navbar */
   border: none; /* Remove card borders */
   color: #fff; /* Text color for the cards */
   padding-top: 10px;
@@ -229,7 +229,7 @@ body {
 
 .card-signup{
   margin: 100px;
-  background-color: #e56b6f; /* Set the same color as the navbar */
+  background-color: #005073; /* Set the same color as the navbar */
   border: none; /* Remove card borders */
   color: #fff; /* Text color for the cards */
   padding-top: 10px;
@@ -312,7 +312,7 @@ select {
 
 .card-welcome {
   margin: 20px;
-  background-color: #e56b6f; /* Set the same color as the navbar */
+  background-color: #005073; /* Set the same color as the navbar */
   border: none; /* Remove card borders */
   color: #fff; /* Text color for the cards */
   margin-top: 100px;
