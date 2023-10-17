@@ -5,8 +5,8 @@ from django.contrib.auth import logout as auth_logout
 from django.shortcuts import render, redirect
 from django.contrib.auth.decorators import login_required
 from django.contrib.auth.forms import UserCreationForm
-from .forms import LeadForm, DealForm
-from .models import Deals, Leads
+from .forms import LeadForm, DealForm, CustomerForm
+from .models import Deals, Leads, Customers
 
 
 
@@ -136,5 +136,41 @@ def leads_delete(request, lead_id):
 
 
 
+@login_required
+def customers_list(request):
+    customers = Customers.objects.all()  # Fetch all deals from the database
+    return render(request, 'customers_list.html', {'customers': customers})
 
+@login_required
+def customers_form(request):
+    if request.method == 'POST':
+        form = CustomerForm(request.POST)
+        if form.is_valid():
+            form.save()
+            return redirect('customers_list')  # Redirect to the leads list view
+    else:
+        form = CustomerForm()
 
+    return render(request, 'customers_form.html', {'form': form})
+
+@login_required
+def customers_update(request, customer_id):
+    customer = get_object_or_404(Customers, pk=customer_id)  # Use 'pk' instead of 'lead_id'
+
+    if request.method == 'POST':
+        form = CustomerForm(request.POST, instance=customer)
+        if form.is_valid():
+            form.save()
+            return redirect('customers_list')
+    else:
+        form = CustomerForm(instance=customer)
+
+    return render(request, 'customers_update.html', {'form': form, 'customer': customer})
+
+@login_required
+def customers_delete(request, customer_id):
+    customer = get_object_or_404(Customers, pk=customer_id)  # Use 'pk' instead of 'lead_id
+    if request.method == 'POST':
+        customer.delete()
+        return redirect('customers_list')
+    return render(request, 'customers_delete.html', {'customers': customer})

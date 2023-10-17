@@ -21,4 +21,8 @@ urlpatterns = [
     path('leads_form/', login_required(views.leads_form), name='leads_form'),
     path('leads/update/<int:lead_id>/', login_required(views.leads_update), name='leads_update'),
     path('leads/delete/<int:lead_id>/', login_required(views.leads_delete), name='leads_delete'),
+    path('customers_list/', login_required(views.customers_list), name='customers_list'),
+    path('customers_form/', login_required(views.customers_form), name='customers_form'),
+    path('customers/update/<int:customer_id>/', login_required(views.customers_update), name='customers_update'),
+    path('customers/delete/<int:customer_id>/', login_required(views.customers_delete), name='customers_delete'),
 ]

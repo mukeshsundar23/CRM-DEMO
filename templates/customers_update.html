@@ -1,0 +1,109 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Update Customer</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <link rel="stylesheet" href="{% static 'styles.css' %}">
+    <style>
+        .lead-update-form-body {
+            position: relative;
+            width: 30rem;
+            margin: 0 auto;
+            padding: 20px;
+            background-color: #333;
+            border: 1px solid #fff;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(255, 255, 255, 0.1);
+        }
+
+        .card-title {
+            font-weight: bold;
+            text-align: center;
+            margin-bottom: 10px;
+            font-size: 24px;
+            color: #000000;
+            position: relative;
+            z-index: 1;
+        }
+
+        .form-group {
+            margin-bottom: 20px; /* Add space between fields and titles */
+        }
+
+        label {
+            font-weight: bold;
+            color: #000000;
+        }
+
+        input[type="text"],
+        select {
+            width: 100%;
+            padding: 8px;
+            border: 1px solid #fff;
+            border-radius: 5px;
+            font-size: 16px;
+            background-color: #fff;
+            color: #000000;
+        }
+        
+        #id_lead_score,
+        #id_amount,
+        #id_address,
+        #id_notes,
+        #id_email {
+            width: 100%;
+            padding: 8px;
+            border: 1px solid #fff;
+            border-radius: 5px;
+            font-size: 16px;
+            background-color: #fff;
+            color: #000000;
+        }
+
+        .btn-primary {
+            background-color: #007bff;
+            color: #fff;
+        }
+
+        .btn-secondary {
+            background-color: #6c757d;
+            color: #fff;
+        }
+
+        /* Add space before the buttons */
+        .form-button-group {
+            margin-top: 20px;
+            text-align: center;
+        }
+    </style>
+</head>
+
+<body>
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+        <a class="navbar-brand" href="{% url 'customers_list' %}">Back to Customers</a>
+    </nav>
+    <div class="container mt-5">
+        <div class="d-flex justify-content-center">
+            <div class="lead-update-form-body" style="background-color:#D3D3D3;">
+                <h5 class="card-title text-center">Update Customer</h5>
+                <form method="post" id="update-deal-form">
+                    {% csrf_token %}
+                    
+                    {{ form.as_table }} <!-- Use as_table to render the form fields as a table -->
+                        
+                    <div class="form-button-group">
+                        <button type="submit" class="btn btn-primary">Update</button>
+                        <a href="{% url 'customers_list' %}" class="btn btn-secondary">Cancel</a>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</body>
+</html>
