@@ -7,6 +7,12 @@ from django.contrib.auth.decorators import login_required
 from django.contrib.auth.forms import UserCreationForm
 from .forms import LeadForm, DealForm, CustomerForm
 from .models import Deals, Leads, Customers
+from django.db.models import Q
+from django.shortcuts import render
+from django.contrib import messages
+from django.core.paginator import Paginator
+
+
 
 
 
@@ -59,8 +65,33 @@ def analytics(request):
 
 @login_required
 def deals_list(request):
-    deals = Deals.objects.all()  # Fetch all deals from the database
+    deals_list = Deals.objects.all()  # Replace 'Customers' with the actual name of your model
+    paginator = Paginator(deals_list, 10)  # Show 10 customers per page
+
+    page = request.GET.get('page')
+    deals = paginator.get_page(page)
+
     return render(request, 'deals_list.html', {'deals': deals})
+
+@login_required
+def deals_search(request):
+    deal_search_query = request.GET.get('search')
+
+    if deal_search_query:
+        deals = Deals.objects.filter(Q(deal_name__icontains=deal_search_query) | Q(client__icontains=deal_search_query))
+        if deals:
+            # If results are found, display a "Found" message
+            messages.info(request, f'Results found for "{deal_search_query}"')
+        else:
+            # If no results are found, display a "Not Found" message
+            messages.warning(request, f'No results found for "{deal_search_query}"')
+    else:
+        deals = Deals.objects.all()
+
+    context = {'deals': deals, 'search_query': deal_search_query}
+    return render(request, 'deals_list.html', context)
+
+
 
 @login_required
 def deals_form(request):
@@ -97,8 +128,32 @@ def deals_delete(request, deal_id):
 
 @login_required
 def leads_list(request):
-    leads = Leads.objects.all()  # Fetch all deals from the database
+    leads_list = Leads.objects.all()  # Replace 'Customers' with the actual name of your model
+    paginator = Paginator(leads_list, 10)  # Show 10 customers per page
+
+    page = request.GET.get('page')
+    leads = paginator.get_page(page)
+
     return render(request, 'leads_list.html', {'leads': leads})
+
+@login_required
+def leads_search(request):
+    lead_search_query = request.GET.get('search')
+
+    if lead_search_query:
+        leads = Leads.objects.filter(Q(first_name__icontains=lead_search_query) | Q(last_name__icontains=lead_search_query))
+        if leads:
+            # If results are found, display a "Found" message
+            messages.info(request, f'Results found for "{lead_search_query}"')
+        else:
+            # If no results are found, display a "Not Found" message
+            messages.warning(request, f'No results found for "{lead_search_query}"')
+    else:
+        leads = Leads.objects.all()
+
+    context = {'leads': leads, 'search_query': lead_search_query}
+    return render(request, 'leads_list.html', context)
+
 
 @login_required
 def leads_form(request):
@@ -138,8 +193,32 @@ def leads_delete(request, lead_id):
 
 @login_required
 def customers_list(request):
-    customers = Customers.objects.all()  # Fetch all deals from the database
+    customers_list = Customers.objects.all()  # Replace 'Customers' with the actual name of your model
+    paginator = Paginator(customers_list, 10)  # Show 10 customers per page
+
+    page = request.GET.get('page')
+    customers = paginator.get_page(page)
+
     return render(request, 'customers_list.html', {'customers': customers})
+
+
+@login_required
+def customers_search(request):
+    customer_search_query = request.GET.get('search')
+
+    if customer_search_query:
+        leads = Leads.objects.filter(Q(first_name__icontains=customer_search_query) | Q(last_name__icontains=customer_search_query))
+        if leads:
+            # If results are found, display a "Found" message
+            messages.info(request, f'Results found for "{customer_search_query}"')
+        else:
+            # If no results are found, display a "Not Found" message
+            messages.warning(request, f'No results found for "{customer_search_query}"')
+    else:
+        leads = Leads.objects.all()
+
+    context = {'leads': leads, 'search_query': customer_search_query}
+    return render(request, 'leads_list.html', context)
 
 @login_required
 def customers_form(request):
