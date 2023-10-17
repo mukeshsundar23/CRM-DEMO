@@ -207,18 +207,18 @@ def customers_search(request):
     customer_search_query = request.GET.get('search')
 
     if customer_search_query:
-        leads = Leads.objects.filter(Q(first_name__icontains=customer_search_query) | Q(last_name__icontains=customer_search_query))
-        if leads:
+        customers = Customers.objects.filter(Q(first_name__icontains=customer_search_query) | Q(last_name__icontains=customer_search_query))
+        if customers:
             # If results are found, display a "Found" message
             messages.info(request, f'Results found for "{customer_search_query}"')
         else:
             # If no results are found, display a "Not Found" message
             messages.warning(request, f'No results found for "{customer_search_query}"')
     else:
-        leads = Leads.objects.all()
+        customers = Customers.objects.all()
 
-    context = {'leads': leads, 'search_query': customer_search_query}
-    return render(request, 'leads_list.html', context)
+    context = {'customers': customers, 'search_query': customer_search_query}
+    return render(request, 'customers_list.html', context)
 
 @login_required
 def customers_form(request):

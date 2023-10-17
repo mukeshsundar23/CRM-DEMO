@@ -11,6 +11,7 @@ body {
 /* Navbar Styles */
 .navbar {
   border-radius: 0;
+  background-color: #005073;
 }
 
 .navbar-brand img {
@@ -54,7 +55,7 @@ footer {
   bottom: 0;
   height: auto; /* Allow the footer to adjust its height based on content */
   width: 100%;
-  background-color: #343a40; /* Choose the desired background color */
+  background-color: #005073; /* Choose the desired background color */
   color: #fff; /* Text color */
   text-align: center;
   padding: 10px 0; /* Adjust the padding as desired */
@@ -136,7 +137,7 @@ body {
 
 .card {
   margin: 20px;
-  background-color: #343a40; /* Set the same color as the navbar */
+  background-color: #e56b6f; /* Set the same color as the navbar */
   border: none; /* Remove card borders */
   color: #fff; /* Text color for the cards */
 }
@@ -153,7 +154,7 @@ body {
 
 /* Style for the footer */
 .footer {
-  background-color: #343a40;
+  background-color: #005073;
   color: #fff;
   text-align: center;
   padding: 10px 0;
@@ -185,4 +186,54 @@ body {
   padding-top: 10px;
 }
 
+.thead{
+  background-color: #e56b6f;
+  color:#fff;
+}
 
+.btn-new-customer{
+  background-color: #007bff;
+  color: #fff;
+}
+
+.btn-search{
+  background-color: #007bff;
+  color: #fff;
+}
+
+.btn-new-deal{
+  background-color: #007bff;
+  color: #fff;
+}
+
+.btn-new-lead{
+  background-color: #007bff;
+  color: #fff;
+}
+
+.card-logout {
+  margin: 100px;
+  background-color: #e56b6f; /* Set the same color as the navbar */
+  border: none; /* Remove card borders */
+  color: #fff; /* Text color for the cards */
+  padding-top: 10px;
+  border-radius: 10px;
+}
+
+.card-login{
+  margin: 100px;
+  background-color: #e56b6f; /* Set the same color as the navbar */
+  border: none; /* Remove card borders */
+  color: #fff; /* Text color for the cards */
+  padding-top: 10px;
+  border-radius: 10px;
+}
+
+.card-signup{
+  margin: 100px;
+  background-color: #e56b6f; /* Set the same color as the navbar */
+  border: none; /* Remove card borders */
+  color: #fff; /* Text color for the cards */
+  padding-top: 10px;
+  border-radius: 10px;
+}
