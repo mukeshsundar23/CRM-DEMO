@@ -40,7 +40,9 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'crispy_bootstrap4',
     'crispy_forms',
-    'antcrm'
+    'antcrm',
+    'schedule',
+    'djangobower',
 ]
 
 MIDDLEWARE = [

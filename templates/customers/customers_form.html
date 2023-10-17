@@ -4,14 +4,14 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>New Deal</title>
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
-    <link rel="stylesheet" href="{% static 'styles.css' %}">
+    <title>New Customer</title>
+    <link rel="stylesheet" href="{% static 'css/bootstrap.min.css' %}">
+    <link rel="stylesheet" href="{% static 'css/styles.css' %}">
 </head>
 <body>
     <nav class="navbar navbar-expand-lg fixed-top">
-        <a type="button" class="btn btn-light" href="{% url 'deals_list' %}">Back to Deals</a>
-    
+            <a type="button" class="btn btn-light" href="{% url 'customers_list' %}">Back to Customers</a>
+        </a>
         <div class="ml-auto">
             <div class="nav-item dropdown">
                 <a class="nav-link dropdown-toggle" href="#" id="userDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
@@ -29,42 +29,38 @@
     <div class="container mt-5" style="padding-top: 60px;">
         <div class="row justify-content-center">
             <div class="col-md-8">
-                <h1 class="text-center">New Deal</h1>
+                <h1 class="text-center">New Customer</h1>
                 <form method="post">
                     {% csrf_token %}
                     <div class="form-group">
-                        <label for="deal_name">Deal Name:</label>
-                        <input type="text" class="form-control" id="deal_name" name="deal_name">
+                        <label for="first_name">First Name:</label>
+                        <input type="text" class="form-control" id="first_name" name="first_name" placeholder="Enter first name" required>
                     </div>
                     <div class="form-group">
-                        <label for="stage">Stage:</label>
-                        <input type="text" class="form-control" id="stage" name="stage">
+                        <label for="last_name">Last Name:</label>
+                        <input type="text" class="form-control" id="last_name" name="last_name" placeholder="Enter last name" required>
                     </div>
                     <div class="form-group">
-                        <label for="activity">Activity:</label>
-                        <input type="text" class="form-control" id="activity" name="activity">
+                        <label for="company">Company:</label>
+                        <input type="text" class="form-control" id="company" name="company" placeholder="Enter company" required>
                     </div>
                     <div class="form-group">
-                        <label for="client">Client:</label>
-                        <input type="text" class="form-control" id="client" name="client" placeholder="Enter client" required>
+                        <label for="email">Email:</label>
+                        <input type="email" class="form-control" id="email" name="email" placeholder="Enter email" required>
                     </div>
                     <div class="form-group">
-                        <label for="amount">Amount:</label>
-                        <input type="number" class="form-control" id="amount" name="amount" placeholder="Enter amount" required>
+                        <label for="phone">Phone:</label>
+                        <input type="text" class="form-control" id="phone" name="phone" placeholder="Enter phone" required>
                     </div>
                     <div class="form-group">
-                        <label for="responsible">Responsible:</label>
-                        <input type="text" class="form-control" id="responsible" name="responsible" placeholder="Enter responsible" required>
+                        <label for="address">Address:</label>
+                        <textarea class="form-control" id="address" name="address" rows="3" placeholder="Enter address" required></textarea>
                     </div>
                     <div class="form-group">
-                        <label for="created">Created:</label>
-                        <input type="date" class="form-control" id="created" name="created" required>
+                        <label for="created_date">Created Date:</label>
+                        <input type="date" class="form-control" id="created_date" name="created_date" required>
                     </div>
-                    <div class="form-group">
-                        <label for="customer_journey">Customer Journey:</label>
-                        <textarea class="form-control" id="customer_journey" name="customer_journey" rows="3" required></textarea>
-                    </div>
-                    <button type="submit" class="btn btn-dark btn-block">Save Deal</button>
+                    <button type="submit" class="btn btn-block btn-save-customer">Save Customer</button>
                 </form>
             </div>
         </div>

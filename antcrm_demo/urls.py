@@ -1,11 +1,12 @@
 from django.contrib import admin
-from django.urls import path
+from django.urls import path, include
 from antcrm import views
 from django.contrib.auth.decorators import login_required
 
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('logout/', views.logout, name='logout'),
+    path('calendar/', views.calendar, name='calendar'),
     path('', views.welcome, name='welcome'),
     path('login/', views.login, name='login'),
     path('signup/', views.signup, name='signup'),

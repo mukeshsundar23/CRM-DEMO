@@ -1,0 +1,21 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{% static 'css/bootstrap.min.css' %}">
+    <link rel="stylesheet" href="{% static 'css/styles.css' %}">
+    <title>Calendar</title>
+</head>
+
+<nav class="navbar navbar-expand-lg fixed-top">
+  <a type="button" class="btn btn-light" href="{% url 'crm' %}">Back to Home</a>
+</nav>
+
+<body class="calendar-body">
+    <div class="calendar-container">
+        <iframe class="calendar-frame" src="https://calendar.google.com/calendar/embed?height=600&wkst=1&bgcolor=%23ffffff&ctz=UTC&showTitle=0&showPrint=0&src=bXVrZXNoc3VuZGFyMjM2MjAwNEBnbWFpbC5jb20&src=MnZrOXAybTNjMWc0M3FudTNycHA2bjd2aTRAZ3JvdXAuY2FsZW5kYXIuZ29vZ2xlLmNvbQ&src=YWRkcmVzc2Jvb2sjY29udGFjdHNAZ3JvdXAudi5jYWxlbmRhci5nb29nbGUuY29t&src=ZW4uaW5kaWFuI2hvbGlkYXlAZ3JvdXAudi5jYWxlbmRhci5nb29nbGUuY29t&src=MjcxcTB1cGZzM3BvZ29jYmRoMjRmdnNraTk5YWpkNmxAaW1wb3J0LmNhbGVuZGFyLmdvb2dsZS5jb20&color=%23039BE5&color=%23AD1457&color=%2333B679&color=%230B8043&color=%238E24AA" width="800" height="600" name="custom-calendar"></iframe>
+    </div>
+</body>
+</html>

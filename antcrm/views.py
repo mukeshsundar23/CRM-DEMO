@@ -17,7 +17,7 @@ from django.core.paginator import Paginator
 
 
 def welcome(request):
-    return render(request, 'welcome.html')
+    return render(request, 'welcome_page/welcome.html')
 
 def login(request):
     if request.method == 'POST':
@@ -27,7 +27,7 @@ def login(request):
         if user is not None:
             auth_login(request, user)
             return redirect('crm')  
-    return render(request, 'login.html') 
+    return render(request, 'welcome_page/login.html') 
 
 
 def signup(request):
@@ -40,28 +40,31 @@ def signup(request):
             return redirect('login')  # Redirect to the login page
     else:
         form = UserCreationForm()
-    return render(request, 'signup.html', {'form': form})
+    return render(request, 'welcome_page/signup.html', {'form': form})
 
 
 def logout(request):
-    return render(request, 'logout.html') 
+    return render(request, 'crm_home/logout.html') 
+
+def calendar(request):
+    return render(request, 'crm_home/calendar.html') 
 
 
 @login_required
 def crm(request):
-    return render(request, 'crm.html')
+    return render(request, 'crm_home/crm.html')
 
 @login_required
 def deals_dashboard(request):
-    return render(request, 'deals_dashboard.html')
+    return render(request, 'analytics/deals_dashboard.html')
 
 @login_required
 def leads_dashboard(request):
-    return render(request, 'leads_dashboard.html')
+    return render(request, 'analytics/leads_dashboard.html')
 
 @login_required
 def analytics(request):
-    return render(request, 'analytics.html')
+    return render(request, 'analytics/analytics.html')
 
 @login_required
 def deals_list(request):
@@ -71,7 +74,7 @@ def deals_list(request):
     page = request.GET.get('page')
     deals = paginator.get_page(page)
 
-    return render(request, 'deals_list.html', {'deals': deals})
+    return render(request, 'deals/deals_list.html', {'deals': deals})
 
 @login_required
 def deals_search(request):
@@ -89,7 +92,7 @@ def deals_search(request):
         deals = Deals.objects.all()
 
     context = {'deals': deals, 'search_query': deal_search_query}
-    return render(request, 'deals_list.html', context)
+    return render(request, 'deals/deals_list.html', context)
 
 
 
@@ -102,7 +105,7 @@ def deals_form(request):
             return redirect('deals_list')  # Redirect to the deals list view
     else:
         form = DealForm()
-    return render(request, 'deals_form.html', {'form': form})
+    return render(request, 'deals/deals_form.html', {'form': form})
 
 @login_required
 def deals_update(request, deal_id):
@@ -116,7 +119,7 @@ def deals_update(request, deal_id):
     else:
         form = DealForm(instance=deal)
 
-    return render(request, 'deals_update.html', {'form': form, 'deal': deal})
+    return render(request, 'deals/deals_update.html', {'form': form, 'deal': deal})
 
 @login_required
 def deals_delete(request, deal_id):
@@ -124,7 +127,7 @@ def deals_delete(request, deal_id):
     if request.method == 'POST':
         deal.delete()
         return redirect('deals_list')
-    return render(request, 'deals_delete.html', {'deal': deal})
+    return render(request, 'deals/deals_delete.html', {'deal': deal})
 
 @login_required
 def leads_list(request):
@@ -134,7 +137,7 @@ def leads_list(request):
     page = request.GET.get('page')
     leads = paginator.get_page(page)
 
-    return render(request, 'leads_list.html', {'leads': leads})
+    return render(request, 'leads/leads_list.html', {'leads': leads})
 
 @login_required
 def leads_search(request):
@@ -152,7 +155,7 @@ def leads_search(request):
         leads = Leads.objects.all()
 
     context = {'leads': leads, 'search_query': lead_search_query}
-    return render(request, 'leads_list.html', context)
+    return render(request, 'leads/leads_list.html', context)
 
 
 @login_required
@@ -165,7 +168,7 @@ def leads_form(request):
     else:
         form = LeadForm()
 
-    return render(request, 'leads_form.html', {'form': form})
+    return render(request, 'leads/leads_form.html', {'form': form})
 
 @login_required
 def leads_update(request, lead_id):
@@ -179,7 +182,7 @@ def leads_update(request, lead_id):
     else:
         form = LeadForm(instance=lead)
 
-    return render(request, 'leads_update.html', {'form': form, 'lead': lead})
+    return render(request, 'leads/leads_update.html', {'form': form, 'lead': lead})
 
 @login_required
 def leads_delete(request, lead_id):
@@ -187,7 +190,7 @@ def leads_delete(request, lead_id):
     if request.method == 'POST':
         lead.delete()
         return redirect('leads_list')
-    return render(request, 'leads_delete.html', {'lead': lead})
+    return render(request, 'leads/leads_delete.html', {'lead': lead})
 
 
 
@@ -199,7 +202,7 @@ def customers_list(request):
     page = request.GET.get('page')
     customers = paginator.get_page(page)
 
-    return render(request, 'customers_list.html', {'customers': customers})
+    return render(request, 'customers/customers_list.html', {'customers': customers})
 
 
 @login_required
@@ -218,7 +221,7 @@ def customers_search(request):
         customers = Customers.objects.all()
 
     context = {'customers': customers, 'search_query': customer_search_query}
-    return render(request, 'customers_list.html', context)
+    return render(request, 'customers/customers_list.html', context)
 
 @login_required
 def customers_form(request):
@@ -230,7 +233,7 @@ def customers_form(request):
     else:
         form = CustomerForm()
 
-    return render(request, 'customers_form.html', {'form': form})
+    return render(request, 'customers/customers_form.html', {'form': form})
 
 @login_required
 def customers_update(request, customer_id):
@@ -244,7 +247,7 @@ def customers_update(request, customer_id):
     else:
         form = CustomerForm(instance=customer)
 
-    return render(request, 'customers_update.html', {'form': form, 'customer': customer})
+    return render(request, 'customers/customers_update.html', {'form': form, 'customer': customer})
 
 @login_required
 def customers_delete(request, customer_id):
@@ -252,4 +255,4 @@ def customers_delete(request, customer_id):
     if request.method == 'POST':
         customer.delete()
         return redirect('customers_list')
-    return render(request, 'customers_delete.html', {'customers': customer})
+    return render(request, 'customers/customers_delete.html', {'customers': customer})

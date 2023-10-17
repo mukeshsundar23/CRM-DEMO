@@ -1,0 +1,37 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Update Deal</title>
+    <link rel="stylesheet" href="{% static 'css/bootstrap.min.css' %}">
+    <link rel="stylesheet" href="{% static 'css/styles.css' %}">
+</head>
+
+<body>
+    <nav class="navbar navbar-expand-lg fixed-top">
+        <a type="button" class="btn btn-light" href="{% url 'deals_list' %}">Back to Deals</a>
+    </nav>
+    <div class="container mt-5">
+        <div class="d-flex justify-content-center">
+            <div class="lead-update-form-body" style="background-color:#D3D3D3;">
+                <h5 class="card-title-deal-update text-center">Update Deal</h5>
+                <form method="post" id="update-deal-form">
+                    {% csrf_token %}
+                    
+                    {{ form.as_table }} <!-- Use as_table to render the form fields as a table -->
+                        
+                    <div class="form-button-group-deal-update">
+                        <button type="submit" class="btn btn-primary btn-deal-update">Update</button>
+                        <a href="{% url 'deals_list' %}" class="btn btn-secondary btn-deal-cancel">Cancel</a>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</body>
+</html>

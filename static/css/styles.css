@@ -8,6 +8,14 @@ body {
   margin-top: 20px;
 }
 
+.container-login {
+  margin-top: 150px;
+}
+
+.container-signup {
+  margin-top: 120px;
+}
+
 /* Navbar Styles */
 .navbar {
   border-radius: 0;
@@ -18,21 +26,16 @@ body {
   max-height: 40px; /* Adjust the logo's max height as needed */
 }
 
-/* Welcome Page Styles */
-.welcome-container {
-  text-align: center;
-  padding: 40px;
-  background-color: #ffffff;
-  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
-  border-radius: 5px;
-}
-
 /* Login and Sign-Up Page Styles */
 .card {
   border: none;
 }
 
 .card-body {
+  padding: 20px;
+}
+
+.card-body-welcome {
   padding: 20px;
 }
 
@@ -95,17 +98,6 @@ footer p {
   border-radius: 50%;
 }
 
-/* Footer Styles for CRM Page */
-.crm-page footer {
-  position: absolute;
-  bottom: 0;
-  height: auto;
-  width: 100%;
-  background-color: #343a40; /* Footer background color */
-  color: #fff; /* Footer text color */
-  text-align: center;
-  padding: 10px 0; /* Footer padding */
-}
 
 /* Custom CSS for navbar and avatar size */
 body {
@@ -127,12 +119,17 @@ body {
   line-height: 40px;
 }
 
-.header {
-  margin-top: 150px;
+.header-crm-home {
+  margin-top: 130px;
+}
+
+.header-analytics {
+  margin-top: 250px;
 }
 
 .card-row {
   justify-content: center;
+  margin-top: 20px;
 }
 
 .card {
@@ -150,20 +147,6 @@ body {
 .navbar .dropdown-menu {
   right: 0;
   left: auto;
-}
-
-/* Style for the footer */
-.footer {
-  background-color: #005073;
-  color: #fff;
-  text-align: center;
-  padding: 10px 0;
-  position: absolute;
-  bottom: 0;
-  height: 25%;
-  width: 100%;
-  overflow-x: auto;
-  overflow-y: auto;
 }
 
 .table-container {
@@ -211,6 +194,21 @@ body {
   color: #fff;
 }
 
+.btn-save-deal{
+  background-color: #007bff;
+  color: #fff;
+}
+
+.btn-save-lead{
+  background-color: #007bff;
+  color: #fff;
+}
+
+.btn-save-customer{
+  background-color: #007bff;
+  color: #fff;
+}
+
 .card-logout {
   margin: 100px;
   background-color: #e56b6f; /* Set the same color as the navbar */
@@ -237,3 +235,106 @@ body {
   padding-top: 10px;
   border-radius: 10px;
 }
+
+.lead-update-form-body {
+  position: relative;
+  width: 30rem;
+  margin: 0 auto;
+  padding: 20px;
+  background-color: #333;
+  border: 1px solid #fff;
+  border-radius: 10px;
+  box-shadow: 0 0 10px rgba(255, 255, 255, 0.1);
+}
+
+.card-title-deal-update {
+  font-weight: bold;
+  text-align: center;
+  margin-bottom: 10px;
+  font-size: 24px;
+  color: #000000;
+  position: relative;
+  z-index: 1;
+}
+
+.form-group {
+  margin-bottom: 20px; /* Add space between fields and titles */
+}
+
+label {
+  font-weight: bold;
+  color: #000000;
+}
+
+input[type="text"],
+select {
+  width: 100%;
+  padding: 8px;
+  border: 1px solid #D3D3D3;
+  border-radius: 5px;
+  font-size: 16px;
+  background-color: #fff;
+  color: #000000;
+}
+
+#id_amount,
+#id_address,
+#id_notes,
+#id_email {
+  width: 100%;
+  padding: 8px;
+  border: 1px solid #fff;
+  border-radius: 5px;
+  font-size: 16px;
+  background-color: #fff;
+  color: #000000;
+}
+
+.btn-deal-update {
+  background-color: #007bff;
+  color: #fff;
+}
+
+.btn-deal-cancel {
+  background-color: #6c757d;
+  color: #fff;
+}
+
+/* Add space before the buttons */
+.form-button-group-deal-update {
+  margin-top: 20px;
+  text-align: center;
+}
+
+.table-leads {
+  overflow-x: auto;
+}
+
+.card-welcome {
+  margin: 20px;
+  background-color: #e56b6f; /* Set the same color as the navbar */
+  border: none; /* Remove card borders */
+  color: #fff; /* Text color for the cards */
+  margin-top: 100px;
+}
+
+   /* Center the calendar on the page */
+   .calendar-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin-top: 40px;
+}
+
+/* Add some styles to the iframe */
+iframe.calendar-frame {
+    border: none;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.2);
+    border-radius: 8px;
+}
+
+.calendar-body{
+  overflow: hidden;
+}
+
