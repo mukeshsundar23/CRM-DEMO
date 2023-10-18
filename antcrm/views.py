@@ -5,8 +5,8 @@ from django.contrib.auth import logout as auth_logout
 from django.shortcuts import render, redirect
 from django.contrib.auth.decorators import login_required
 from django.contrib.auth.forms import UserCreationForm
-from .forms import LeadForm, DealForm, CustomerForm
-from .models import Deals, Leads, Customers
+from .forms import LeadForm, DealForm, CustomerForm, TaskForm
+from .models import Deals, Leads, Customers, Tasks
 from django.db.models import Q
 from django.shortcuts import render
 from django.contrib import messages
@@ -47,8 +47,20 @@ def logout(request):
     return render(request, 'crm_home/logout.html') 
 
 def calendar(request):
-    return render(request, 'crm_home/calendar.html') 
+    return render(request, 'crm_home/calendar.html')
 
+def tasks(request, year, month, day):
+    # Query the database for tasks associated with the selected date
+    tasks = Tasks.objects.filter(time__year=year, time__month=month, time__day=day)
+
+    # Process the tasks and display them in your template
+    context = {
+        'year': year,
+        'month': month,
+        'day': day,
+        'tasks': tasks,
+    }
+    return render(request, 'crm_home/tasks.html', context)
 
 @login_required
 def crm(request):

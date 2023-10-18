@@ -1,0 +1,24 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Create Task</title>
+    <link rel="stylesheet" href="{% static 'css/styles.css' %}"> 
+</head>
+
+<body class="light">
+    <div class="tasks">
+        <h1>Tasks for {{ month }}/{{ day }}/{{ year }}</h1>
+        <ul>
+            {% for task in tasks %}
+                <li>{{ task.title }}</li>
+            {% endfor %}
+        </ul>
+        <!-- Add a form for creating new tasks here -->
+    </div>
+    <!-- Add your JavaScript script tags here if needed -->
+</body>
+</html>

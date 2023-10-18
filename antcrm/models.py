@@ -1,4 +1,6 @@
 from django.db import models
+from django.contrib.auth.models import User
+
 
 class Deals(models.Model):
     deal_id = models.AutoField(primary_key=True)
@@ -50,4 +52,24 @@ class Customers(models.Model):
 
     def __str__(self):
         return f"{self.first_name} {self.last_name}"
+    
 
+IMPORTANCE_CHOICES = (
+    ('low', 'Low'),
+    ('medium', 'Medium'),
+    ('high', 'High'),
+)
+
+class Tasks(models.Model):
+    user = models.ForeignKey(User, on_delete=models.CASCADE) 
+    time = models.DateTimeField()
+    title = models.CharField(max_length=255)
+    reminder = models.DateTimeField()
+    importance = models.CharField(max_length=10, choices=IMPORTANCE_CHOICES)
+
+    class Meta:
+        app_label = 'antcrm'
+    
+
+
+    

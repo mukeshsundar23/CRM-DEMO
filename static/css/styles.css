@@ -315,7 +315,6 @@ select {
   background-color: #005073; /* Set the same color as the navbar */
   border: none; /* Remove card borders */
   color: #fff; /* Text color for the cards */
-  margin-top: 100px;
 }
 
    /* Center the calendar on the page */

@@ -1,5 +1,5 @@
 from django import forms
-from .models import Deals, Leads, Customers
+from .models import Deals, Leads, Customers, Tasks
 
 
 class DealForm(forms.ModelForm):
@@ -15,4 +15,9 @@ class LeadForm(forms.ModelForm):
 class CustomerForm(forms.ModelForm):
     class Meta:
         model = Customers
+        fields = '__all__'
+
+class TaskForm(forms.ModelForm):
+    class Meta:
+        model = Tasks
         fields = '__all__'
