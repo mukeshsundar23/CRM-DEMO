@@ -26,6 +26,8 @@
                         <form action="{% url 'welcome' %}" method="post" class="text-center">
                             {% csrf_token %}
                             <button type="submit" class="btn btn-primary">Logout</button>
+                            <!-- Change the Cancel button to an anchor tag -->
+                            <a class="btn btn-danger" href="{% url 'crm' %}">Cancel</a>
                         </form>
                     </div>
                 </div>

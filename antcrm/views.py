@@ -48,7 +48,7 @@ def view_profile(request):
     return render(request, 'crm_home/view_profile.html')
 
 def general(request):
-    return render(request, 'general.html')
+    return render(request, 'crm_home/view_profile.html')
 
 def tasks(request):
     return render(request, 'tasks.html')
