@@ -19,7 +19,6 @@ class Deals(models.Model):
 
 class Leads(models.Model):
     # Lead ID will be automatically created as a primary key
-
     first_name = models.CharField(max_length=50)
     last_name = models.CharField(max_length=50)
     company = models.CharField(max_length=100)
@@ -69,6 +68,11 @@ class Tasks(models.Model):
 
     class Meta:
         app_label = 'antcrm'
+
+
+
+
+
     
 
 

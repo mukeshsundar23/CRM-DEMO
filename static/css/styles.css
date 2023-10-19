@@ -337,3 +337,39 @@ iframe.calendar-frame {
   overflow: hidden;
 }
 
+
+/* global-styles.css */
+
+/* Global styles */
+
+.profile-body {
+  font-family: Arial, sans-serif;
+  background-color: #f0f0f0;
+  text-align: center;
+  padding: 20px;
+}
+
+/* Styles for the View Profile page */
+.profile-page-title {
+  color: #333;
+  font-size: 24px;
+}
+
+.profile-page-image {
+  max-width: 200px;
+  border-radius: 50%;
+}
+
+.profile-page-info {
+  margin: 10px;
+  font-size: 18px;
+}
+
+.profile-page-info a {
+  color: #007bff;
+  text-decoration: none;
+}
+
+.profile-page-navbar .profile-nav-pages{
+  color: #fff;
+}

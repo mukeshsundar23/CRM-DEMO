@@ -5,14 +5,12 @@ from django.contrib.auth import logout as auth_logout
 from django.shortcuts import render, redirect
 from django.contrib.auth.decorators import login_required
 from django.contrib.auth.forms import UserCreationForm
-from .forms import LeadForm, DealForm, CustomerForm, TaskForm
-from .models import Deals, Leads, Customers, Tasks
+from .forms import LeadForm, DealForm, CustomerForm
+from .models import Deals, Leads, Customers
 from django.db.models import Q
 from django.shortcuts import render
 from django.contrib import messages
 from django.core.paginator import Paginator
-
-
 
 
 
@@ -36,7 +34,7 @@ def signup(request):
         if form.is_valid():
             user = form.save()
             # Log in the user
-            login(request, user)
+            auth_login(request, user)
             return redirect('login')  # Redirect to the login page
     else:
         form = UserCreationForm()
@@ -46,21 +44,26 @@ def signup(request):
 def logout(request):
     return render(request, 'crm_home/logout.html') 
 
+def view_profile(request):
+    return render(request, 'crm_home/view_profile.html')
+
+def general(request):
+    return render(request, 'general.html')
+
+def tasks(request):
+    return render(request, 'tasks.html')
+
 def calendar(request):
-    return render(request, 'crm_home/calendar.html')
+    return render(request, 'calendar.html')
 
-def tasks(request, year, month, day):
-    # Query the database for tasks associated with the selected date
-    tasks = Tasks.objects.filter(time__year=year, time__month=month, time__day=day)
+def drive(request):
+    return render(request, 'drive.html')
 
-    # Process the tasks and display them in your template
-    context = {
-        'year': year,
-        'month': month,
-        'day': day,
-        'tasks': tasks,
-    }
-    return render(request, 'crm_home/tasks.html', context)
+def efficiency(request):
+    return render(request, 'efficiency.html')
+
+def groups(request):
+    return render(request, 'groups.html')
 
 @login_required
 def crm(request):

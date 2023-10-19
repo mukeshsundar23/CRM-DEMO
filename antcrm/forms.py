@@ -1,4 +1,6 @@
 from django import forms
+from django.contrib.auth.forms import UserCreationForm
+from django.contrib.auth.models import User
 from .models import Deals, Leads, Customers, Tasks
 
 
@@ -21,3 +23,4 @@ class TaskForm(forms.ModelForm):
     class Meta:
         model = Tasks
         fields = '__all__'
+
